@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   epur_str.c                                         :+:      :+:    :+:   */
+/*   expand_str.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gualvare <gualvare@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 17:53:40 by gualvare          #+#    #+#             */
-/*   Updated: 2024/12/11 17:58:41 by gualvare         ###   ########.fr       */
+/*   Created: 2024/12/11 17:58:58 by gualvare          #+#    #+#             */
+/*   Updated: 2024/12/11 18:54:57 by gualvare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 	{
 		int i = 0;
 		int space = 0;
-		while (argv[1][i] == 32 || argv[1][i]  == '\t')
+		while (argv[1][i] == 32 || argv[1][i] == '\t')
 			i++;
 		while (argv[1][i])
 		{
@@ -27,14 +27,14 @@ int main(int argc, char **argv)
 			if (argv[1][i] != 32 && argv[1][i] != '\t')
 			{
 				if (space)
-					write(1, " ", 1);
+					write(1, "   ", 3);
 				space = 0;
 				write(1, &argv[1][i], 1);
 			}
 			i++;
+		
 		}
 	
 	}
-	write(1, "\n", 1);
-
+	write(1, "\n" ,1);
 }

@@ -1,14 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_prime_sum.c                                    :+:      :+:    :+:   */
+/*   print_hex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gualvare <gualvare@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 15:20:09 by gualvare          #+#    #+#             */
-/*   Updated: 2024/12/11 15:36:10 by gualvare         ###   ########.fr       */
+/*   Created: 2024/12/11 19:41:32 by gualvare          #+#    #+#             */
+/*   Updated: 2024/12/11 19:46:05 by gualvare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <unistd.h>
 
 int ft_atoi(char *str)
@@ -21,42 +22,19 @@ int ft_atoi(char *str)
 	}
 	return (result);
 }
-int is_prime(int nb)
+void puthex(int nb)
 {
-	int i = 2;
-	if (nb <= 0)
-		return (0);
-	while (i * i <= nb)
-	{
-		if (nb % i == 0)
-			return (0);
-		i++;
-	}
-	return (1);
-}
-void ft_putnbr(int nb)
-{
-	char *base = "0123456789";
-	if (nb > 9)
-		ft_putnbr(nb / 10);
-	write(1, &base[nb % 10], 1);
+	char *base = "0123456789abcdef";
+	if (nb > 15)
+		puthex(nb / 16);
+	write(1, &base[nb % 16], 1);
 }
 int main(int argc, char **argv)
 {
 	if (argc == 2)
 	{
 		int nb = ft_atoi(argv[1]);
-		int res = 0;
-		while (nb > 1)
-		{
-			if (is_prime(nb))
-				res = res + nb;
-			nb--;
-		}
-		ft_putnbr(res);
-	
+		puthex(nb);	
 	}
-	if (argc != 2)
-		ft_putnbr(0);
-	write(1, "\n", 1);
-}	
+	write(1, "\n" ,1);
+}

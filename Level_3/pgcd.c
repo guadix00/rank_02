@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   epur_str.c                                         :+:      :+:    :+:   */
+/*   pgcd.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gualvare <gualvare@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 17:53:40 by gualvare          #+#    #+#             */
-/*   Updated: 2024/12/11 17:58:41 by gualvare         ###   ########.fr       */
+/*   Created: 2024/12/11 19:36:36 by gualvare          #+#    #+#             */
+/*   Updated: 2024/12/11 19:41:17 by gualvare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
+#include <stdio.h>
+#include <stdlib.h>
 int main(int argc, char **argv)
 {
-	if (argc == 2)
+	if (argc == 3)
 	{
-		int i = 0;
-		int space = 0;
-		while (argv[1][i] == 32 || argv[1][i]  == '\t')
-			i++;
-		while (argv[1][i])
+		int nb1 = atoi(argv[1]);
+		int nb2 = atoi(argv[2]);
+		if (nb1 > 0 && nb2 > 0)
 		{
-			if (argv[1][i] == 32 || argv[1][i] == '\t')
-				space = 1;
-			if (argv[1][i] != 32 && argv[1][i] != '\t')
+			while (nb1 != nb2)
 			{
-				if (space)
-					write(1, " ", 1);
-				space = 0;
-				write(1, &argv[1][i], 1);
+				if (nb1 > nb2)
+					nb1 = nb1 - nb2;
+				else
+					nb2 = nb2 - nb1;
 			}
-			i++;
+			printf("%d", nb1);
+		
 		}
+
 	
 	}
-	write(1, "\n", 1);
-
+	printf("\n");
 }
