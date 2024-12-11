@@ -31,7 +31,7 @@ int ft_atoi_base(const char *str, int str_base)
     int sign = 1;
     int result = 0;
 
-    while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\v' || *str == '\f' || *str == '\r')
+    while (*str == ' ' || *str == '\t')
         str++;
 
     if (*str == '-')
