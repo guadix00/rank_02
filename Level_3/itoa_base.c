@@ -64,7 +64,7 @@ int main()
     const char *test3 = "  +10";
     const char *test4 = "zzz"; 
 
-    printf("Test 1 (base 16): %d\n", ft_atoi_base(test1, 2)); 
+    printf("Test 1 (base 2): %d\n", ft_atoi_base(test1, 2)); 
     printf("Test 2 (base 16): %d\n", ft_atoi_base(test2, 16)); 
     printf("Test 3 (base 10): %d\n", ft_atoi_base(test3, 10)); 
     printf("Test 4 (base 16): %d\n", ft_atoi_base(test4, 16)); 
